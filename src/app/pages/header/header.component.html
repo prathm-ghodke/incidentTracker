@@ -1,0 +1,58 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer
+    class="border border-end border-3 bg-dark col-md-2"
+    mode="side"
+    [(opened)]="sideNavToggle"
+  >
+    <div class="row m-2" [style]="{ 'margin-right': '0px' }">
+      <div>
+        <a href="dashboard">
+          <h1 class="text-light">Dashboard</h1>
+        </a>
+      </div>
+      <div class="py-2">
+        <a href="users" class="text-light">
+          <h5>User</h5>
+        </a>
+      </div>
+      <div class="py-2">
+        <a href="create-new" class="text-light">
+          <h5>Create New Incident</h5>
+        </a>
+      </div>
+      <div class="py-2">
+        <a href="incident-list" class="text-light">
+          <h5>Incident list</h5>
+        </a>
+      </div>
+    </div>
+    <div class="row m-2">
+      <div class="position-absolute bottom-0 start-0 mb-3">
+        <p class="text-light">
+          Logged in as: <strong>{{ loggedUser.userName }}</strong>
+        </p>
+        <button class="btn btn-danger text-light mx-auto w-100" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content class="col-md-10">
+    <div id="navbar-wrapper">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button
+              mat-mini-fab
+              aria-label="Example icon button with a menu icon"
+              (click)="toggleSideNav()"
+            >
+              <mat-icon>menu</mat-icon>
+            </button>
+            <div>
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
